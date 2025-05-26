@@ -12,24 +12,21 @@ const modalAcceptBtn = document.getElementById('modalAcceptBtn');
 
 let currentUser = null;
 
-// Observar el estado de autenticación
 onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user;
-    console.log('Autenticado como:', user.uid);
+    console.log("Autenticado como:", currentUser.uid);
     if (anonModal.style.display === 'none') {
       nicknameInput.disabled = false;
       submitBtn.disabled = false;
     }
   } else {
-    console.log('Autenticando anónimamente...');
     signInAnonymously(auth).catch((error) => {
       alert("Error autenticando anónimamente: " + error.message);
     });
   }
 });
 
-// Cerrar el modal y habilitar inputs
 modalAcceptBtn.onclick = () => {
   anonModal.style.display = 'none';
   if (currentUser) {
@@ -38,7 +35,6 @@ modalAcceptBtn.onclick = () => {
   }
 };
 
-// Al hacer clic en Enviar
 submitBtn.onclick = async () => {
   const nick = nicknameInput.value.trim();
   if (!nick) {
@@ -56,18 +52,21 @@ submitBtn.onclick = async () => {
     const userDoc = await getDoc(userDocRef);
 
     if (!userDoc.exists()) {
-      console.log('Usuario nuevo, mostrando captcha');
+      console.log("Usuario nuevo, mostrando captcha");
       captchaContainer.style.display = 'block';
       window.pendingNickname = nick;
       nicknameInput.disabled = true;
       submitBtn.disabled = true;
-    } else {
-      console.log('Usuario ya existe');
-      console.log('UID actual:', currentUser.uid);
-      console.log('UID en doc:', userDoc.data().uid);
 
+      // Render explícito del widget Turnstile (solo si está disponible)
+      if (typeof turnstile !== 'undefined') {
+        turnstile.render('.cf-turnstile', {
+          sitekey: '0x4AAAAAABU4zoWCagVPZDcN',
+          callback: window.checkCaptcha
+        });
+      }
+    } else {
       if (userDoc.data().uid === currentUser.uid) {
-        console.log('UID coincide, redirigiendo');
         entrarConNickname(nick);
       } else {
         alert("Ese nickname ya está en uso por otro usuario.");
@@ -78,8 +77,9 @@ submitBtn.onclick = async () => {
   }
 };
 
-// Se llama desde el captcha (por ejemplo, reCAPTCHA callback)
 window.checkCaptcha = async function (token) {
+  console.log("Token recibido desde Turnstile:", token);
+
   if (!window.pendingNickname) {
     alert('Error inesperado, refresca la página.');
     return;
@@ -100,12 +100,12 @@ window.checkCaptcha = async function (token) {
       uid: currentUser.uid
     });
 
-    console.log('Nuevo usuario registrado:', nick);
-
     captchaContainer.style.display = 'none';
     nicknameInput.disabled = false;
     submitBtn.disabled = false;
-    entrarConNickname(nick);
+    
+    console.log("Redirigiendo a home.html...");
+    window.location.href = `home.html?nick=${encodeURIComponent(nick)}`;
   } catch (err) {
     alert('Error al crear usuario: ' + err.message);
     captchaContainer.style.display = 'none';
@@ -114,8 +114,8 @@ window.checkCaptcha = async function (token) {
   }
 };
 
-// Función para redirigir al home
 function entrarConNickname(nick) {
-  console.log('Redirigiendo a home con nick:', nick);
+  // Redirigir a home.html pasando el nick por query string
+  console.log("Entrando con nickname:", nick);
   window.location.href = `home.html?nick=${encodeURIComponent(nick)}`;
 }
