@@ -50,24 +50,26 @@ submitBtn.onclick = async () => {
     const userDocRef = doc(db, "users", nick);
     const userDoc = await getDoc(userDocRef);
 
-    if (!userDoc.exists()) {
-      // Mostrar captcha para nuevo usuario
-      captchaContainer.style.display = 'block';
-      window.pendingNickname = nick;
-      nicknameInput.disabled = true;
-      submitBtn.disabled = true;
-    } else {
+    if (userDoc.exists()) {
+      // Si ya existe y el uid coincide, entra sin captcha
       if (userDoc.data().uid === currentUser.uid) {
         entrarConNickname(nick);
       } else {
         alert("Ese nickname ya está en uso por otro usuario.");
       }
+    } else {
+      // Mostrar captcha si es un nuevo usuario
+      window.pendingNickname = nick;
+      captchaContainer.style.display = 'block';
+      nicknameInput.disabled = true;
+      submitBtn.disabled = true;
     }
   } catch (error) {
     alert('Error consultando nickname: ' + error.message);
   }
 };
 
+// Función invocada al pasar el captcha
 window.checkCaptcha = async function (token) {
   if (!window.pendingNickname) {
     alert('Error inesperado, refresca la página.');
@@ -102,6 +104,5 @@ window.checkCaptcha = async function (token) {
 };
 
 function entrarConNickname(nick) {
-  // Redirigir a home.html pasando el nick por query string
   window.location.href = `home.html?nick=${encodeURIComponent(nick)}`;
 }
