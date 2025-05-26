@@ -12,20 +12,24 @@ const modalAcceptBtn = document.getElementById('modalAcceptBtn');
 
 let currentUser = null;
 
+// Observar el estado de autenticación
 onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user;
+    console.log('Autenticado como:', user.uid);
     if (anonModal.style.display === 'none') {
       nicknameInput.disabled = false;
       submitBtn.disabled = false;
     }
   } else {
+    console.log('Autenticando anónimamente...');
     signInAnonymously(auth).catch((error) => {
       alert("Error autenticando anónimamente: " + error.message);
     });
   }
 });
 
+// Cerrar el modal y habilitar inputs
 modalAcceptBtn.onclick = () => {
   anonModal.style.display = 'none';
   if (currentUser) {
@@ -34,6 +38,7 @@ modalAcceptBtn.onclick = () => {
   }
 };
 
+// Al hacer clic en Enviar
 submitBtn.onclick = async () => {
   const nick = nicknameInput.value.trim();
   if (!nick) {
@@ -50,26 +55,30 @@ submitBtn.onclick = async () => {
     const userDocRef = doc(db, "users", nick);
     const userDoc = await getDoc(userDocRef);
 
-    if (userDoc.exists()) {
-      // Si ya existe y el uid coincide, entra sin captcha
+    if (!userDoc.exists()) {
+      console.log('Usuario nuevo, mostrando captcha');
+      captchaContainer.style.display = 'block';
+      window.pendingNickname = nick;
+      nicknameInput.disabled = true;
+      submitBtn.disabled = true;
+    } else {
+      console.log('Usuario ya existe');
+      console.log('UID actual:', currentUser.uid);
+      console.log('UID en doc:', userDoc.data().uid);
+
       if (userDoc.data().uid === currentUser.uid) {
+        console.log('UID coincide, redirigiendo');
         entrarConNickname(nick);
       } else {
         alert("Ese nickname ya está en uso por otro usuario.");
       }
-    } else {
-      // Mostrar captcha si es un nuevo usuario
-      window.pendingNickname = nick;
-      captchaContainer.style.display = 'block';
-      nicknameInput.disabled = true;
-      submitBtn.disabled = true;
     }
   } catch (error) {
     alert('Error consultando nickname: ' + error.message);
   }
 };
 
-// Función invocada al pasar el captcha
+// Se llama desde el captcha (por ejemplo, reCAPTCHA callback)
 window.checkCaptcha = async function (token) {
   if (!window.pendingNickname) {
     alert('Error inesperado, refresca la página.');
@@ -91,6 +100,8 @@ window.checkCaptcha = async function (token) {
       uid: currentUser.uid
     });
 
+    console.log('Nuevo usuario registrado:', nick);
+
     captchaContainer.style.display = 'none';
     nicknameInput.disabled = false;
     submitBtn.disabled = false;
@@ -103,6 +114,8 @@ window.checkCaptcha = async function (token) {
   }
 };
 
+// Función para redirigir al home
 function entrarConNickname(nick) {
+  console.log('Redirigiendo a home con nick:', nick);
   window.location.href = `home.html?nick=${encodeURIComponent(nick)}`;
 }
