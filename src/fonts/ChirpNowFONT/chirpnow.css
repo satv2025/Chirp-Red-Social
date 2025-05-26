@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Chirp';
+  src: url('Chirp-Regular.ttf');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('Chirp-Medium.ttf');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('Chirp-Bold.ttf');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('Chirp-Heavy.ttf');
+  font-weight: 900; /* Heavy */
+  font-style: normal;
+}

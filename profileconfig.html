@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Configuración de perfil - ChirpNow</title>
+  <link rel="stylesheet" href="assets/css/profileconfig.css" />
+</head>
+<body>
+  <header>
+    <h1>ChirpNow 💖🐦 - Configuración de Perfil</h1>
+    <nav>
+      <a href="profile.html?uid=me" class="btn">Ver perfil</a>
+      <a href="index.html" class="btn">Inicio</a>
+      <button id="btnLogout" class="btn">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <section class="profile-info">
+      <h2>Editar Perfil</h2>
+
+      <div class="profile-photo-container">
+        <img id="profilePhoto" src="assets/img/default-avatar.png" alt="Foto de perfil" />
+        <input type="file" id="photoInput" accept="image/*" />
+      </div>
+
+      <form id="profileForm">
+        <label for="displayName">Nombre completo:</label>
+        <input type="text" id="displayName" name="displayName" placeholder="Tu nombre completo" />
+
+        <label for="nickname">Nickname:</label>
+        <input type="text" id="nickname" name="nickname" placeholder="Tu nickname" />
+
+        <label for="bio">Biografía:</label>
+        <textarea id="bio" name="bio" rows="3" placeholder="Escribe algo sobre ti..."></textarea>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" />
+
+        <label for="phone">Número de teléfono:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+54 9 11 1234 5678" />
+
+        <label for="password">Nueva contraseña:</label>
+        <input type="password" id="password" name="password" placeholder="Nueva contraseña" />
+
+        <label for="passwordConfirm">Confirmar contraseña:</label>
+        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmar contraseña" />
+
+        <button type="submit">Guardar cambios</button>
+      </form>
+
+      <div id="msgStatus"></div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/profileconfig.js"></script>
+</body>
+</html>

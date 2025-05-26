@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChirpNow 💖🐦 - Iniciar sesión</title>
+  <link rel="stylesheet" href="assets/css/auth.css" />
+</head>
+<body>
+  <main class="auth-container">
+    <h1>Iniciar sesión</h1>
+    <form id="loginForm">
+      <input id="loginEmail" type="email" placeholder="Email" required />
+      <input id="loginPass" type="password" placeholder="Contraseña" required minlength="6" />
+      <button type="submit">Entrar</button>
+      <p id="loginError" class="error"></p>
+    </form>
+    <p>¿No tienes cuenta? <a href="register.html">Regístrate</a></p>
+  </main>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/login.js"></script>
+</body>
+</html>

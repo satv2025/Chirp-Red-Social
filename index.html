@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro Chirp</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+  <!-- Modal aviso anonimato -->
+  <div id="anonModal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>AVISO IMPORTANTE</h2>
+      <p>
+        Chirp es una plataforma anónima. Si decides usar datos reales o credenciales verdaderas, la responsabilidad
+        es exclusivamente tuya. La plataforma no se responsabiliza por daños, problemas, dilemas o cualquier situación
+        que puedas experimentar.
+      </p>
+      <button id="modalAcceptBtn">Acepto y quiero continuar</button>
+    </div>
+  </div>
+
+  <input type="text" class="nickinput" id="nickname" placeholder="Elige tu nickname" disabled />
+  <button id="submitBtn" disabled>ENTRAR</button>
+
+  <div id="captchaContainer" style="display:none; margin-top: 10px;">
+    <div class="cf-turnstile" 
+         data-sitekey="0x4AAAAAABU4zoWCagVPZDcN" 
+         data-callback="checkCaptcha">
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/index.js"></script>
+   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</body>
+</html>

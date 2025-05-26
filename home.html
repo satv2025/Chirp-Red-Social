@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chirp - Inicio</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .chirp {
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      Chirp
+      <p class="slogan-text" id="slogan-text">
+        Tu plataforma anónima para comentar lo que quieras, en una comunidad que <em>escucha, responde y nunca juzga.</em>
+      </p>
+    </h1>
+  </header>
+
+  <nav>
+    <button class="home-btn" onclick="location.href='/info.html'">Inicio</button>
+  </nav>
+
+  <main class="container">
+<section id="tweetSection" class="tweet-box hidden">
+  <textarea id="tweetInput" placeholder="¿Qué estás pensando?"></textarea>
+  <button id="btnTweet">Chirpear</button>
+</section>
+    <section id="timeline" class="timeline">
+      <p>Cargando chirps...</p>
+    </section>
+  </main>
+
+  <footer class="footer">Chirp 2025 &copy; – All rights reserved</footer>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/home.js"></script>
+</body>
+</html>

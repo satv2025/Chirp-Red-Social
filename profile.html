@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil de usuario - ChirpNow</title>
+  <link rel="stylesheet" href="assets/css/profile.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">ChirpNow 💖🐦</a></h1>
+  </header>
+
+  <main class="profile-page">
+    <aside class="sidebar">
+      <img id="profilePhoto" src="assets/img/default-avatar.png" alt="Foto perfil" />
+      <h2 id="displayName">Nombre de usuario</h2>
+      <p id="nickname">@nickname</p>
+      <p id="bio">Aquí va una pequeña bio del usuario...</p>
+      <p id="followers">Seguidores: <span>0</span></p>
+      <p id="following">Siguiendo: <span>0</span></p>
+    </aside>
+
+    <section class="content">
+      <nav class="profile-nav">
+        <button data-tab="tweets" class="active">Tweets</button>
+        <button data-tab="rechirps">Rechirps</button>
+        <button data-tab="media">Media</button>
+      </nav>
+
+      <div id="tabTweets" class="tab-content active">
+        <p>Cargando tweets...</p>
+      </div>
+
+      <div id="tabRechirps" class="tab-content">
+        <p>Cargando rechirps...</p>
+      </div>
+
+      <div id="tabMedia" class="tab-content">
+        <p>Cargando media...</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/profile.js"></script>
+</body>
+</html>

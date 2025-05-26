@@ -1,0 +1,373 @@
+@import url('../../src/fonts/ChirpNowFONT/chirpnow.css');
+
+:root {
+  --main-color: #e91e63;
+  --main-color-dark: #c2185b;
+  --text-color: white;
+  --bg-color: #fce4ec; /* blanco rosado muy suave */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Chirp;
+  background-color: var(--bg-color);
+  color: var(--main-color);
+}
+
+* {
+  font-family: Chirp;
+  box-sizing: border-box;
+}
+
+.chirp p {
+    color: #000;
+}
+
+.chirp strong {
+    color: var(--main-color);
+}
+
+.chirp span {
+    color: #000;
+    opacity: 1;
+}
+
+.chirp {
+    background: #fce4ec;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.5em;
+    padding-bottom: 1.7em;
+    border-radius: 6px;
+}
+
+article {
+  box-shadow: -4px 0 0 0 var(--main-color);
+}
+
+#captchaContainer {
+    position: absolute;
+    top: 62%;
+    left: 43.3%;
+}
+
+.nickinput {
+    position: absolute;
+    left: 45%;
+    top: 49.5%;
+    color: var(--main-color);
+    border: 2px solid;
+    border-radius: 7px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 19px;
+    width: 12.3em;
+}
+
+#nickname:focus {
+    border: 2px solid var(--main-color);
+    outline: none;
+}
+
+#nickname:active {
+    border: 2px solid var(--main-color);
+}
+
+input#nickname {}
+
+::placeholder {
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+header {
+  background-color: #e91e6357;
+  color: var(--text-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    margin-top: 0.15em !important;
+}
+
+.slogan-text {
+  font-size: 14px !important;
+  position: absolute !important;
+  margin-left: 7em !important;
+  margin-top: -2em !important;
+  font-weight: 400 !important;
+}
+
+nav a, nav button {
+  color: var(--main-color-dark);
+  background: #fff;
+  border: 2px solid var(--main-color-dark);
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 1em;
+  font-size: 21px;
+  padding-bottom: 0.1em;
+  padding-top: 0.3em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  border-radius: 0.3em;
+}
+
+.home-btn {
+    margin-left: 45em;
+    margin-top: -2.5em;
+    position: absolute;
+    padding-top: 0.1em;
+}
+
+nav button:hover, nav a:hover {background: var(--main-color-dark);color: #fff;}
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: var(--main-color);
+}
+
+.tweet-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  resize: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  outline: none;
+  font-family: inherit;
+  color: var(--main-color);
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+textarea:focus {
+  border-color: var(--main-color-dark);
+}
+
+button#btnTweet {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background: #fff;
+  color: var(--main-color-dark);
+  border: 2px solid var(--main-color-dark);
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 700;
+}
+
+button#btnTweet:hover {
+  background-color: var(--main-color-dark);
+  color: #fff;
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.tweet {
+  background-color: #fce4ec;
+  border-left: 4px solid var(--main-color);
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  white-space: normal;
+  word-break: break-word;
+  font-weight: 400;
+}
+
+.tweet .author {
+  font-weight: 900;
+  color: var(--main-color-dark);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.nickname {
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--main-color-dark);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#editProfileForm {
+  margin-top: 1rem;
+}
+
+#editProfileForm input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid var(--main-color);
+  border-radius: 8px;
+  outline: none;
+}
+
+#editProfileForm input:focus {
+  border-color: var(--main-color-dark);
+}
+
+#editProfileForm button {
+  margin-top: 0.75rem;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#editProfileForm button:hover {
+  background-color: var(--main-color-dark);
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+footer.footer {
+  text-align: center;
+  margin: 2rem auto 1rem;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Selección rosa fucsia con texto blanco */
+::selection {
+  background: var(--main-color);
+  color: var(--text-color);
+}
+
+#submitBtn {
+    color: var(--main-color);
+    font-weight: 700;
+    padding-left: 76px;
+    padding-right: 76px;
+    left: 45%;
+    position: absolute;
+    top: 56%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 19px;
+    border: 2px solid var(--main-color);
+    border-radius: 7px;
+    background: #fff;
+    cursor: pointer;
+}
+
+#submitBtn:hover {
+    color: #fff;
+    background: var(--main-color);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: Chirp;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  color: var(--main-color);
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(194, 24, 91, 0.7);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: var(--main-color);
+}
+
+.modal-content p {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.03em;
+  text-align: justify;
+}
+
+#modalAcceptBtn {
+  background-color: #fff;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#modalAcceptBtn:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+    .highlight {
+      background-color: #eaf4ff;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .disclaimer {
+      background-color: #fff4e5;
+      box-shadow: -4px 0 0 0 #ffa500;
+      padding: 1rem 1.2rem;
+      margin-top: 2rem;
+      border-radius: 6px;
+      color: #a35d00;
+      font-size: 0.9rem;
+    }
