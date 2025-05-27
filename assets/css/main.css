@@ -372,3 +372,114 @@ footer.footer {
       color: #a35d00;
       font-size: 0.9rem;
     }
+
+/* --- Estilos Responsivos --- */
+
+@media (max-width: 1024px) {
+  .home-btn {
+    margin-left: 0;
+    margin-top: 1em;
+    position: static;
+  }
+
+  .nickinput, #submitBtn, #captchaContainer {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slogan-text {
+    position: static !important;
+    margin: 0.5em 0 0 0 !important;
+  }
+
+  nav a, nav button {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    font-size: 18px;
+  }
+
+  .home-btn {
+    margin: 1em auto 0;
+    position: relative;
+  }
+
+  .container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .nickinput, #submitBtn, #captchaContainer {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .tweet {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+
+  button#btnTweet {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content p {
+    font-size: 0.95rem;
+  }
+
+  #modalAcceptBtn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  nav a, nav button {
+    font-size: 16px;
+  }
+
+  .tweet-box {
+    flex-direction: column;
+  }
+
+  .chirp {
+    padding: 1em;
+  }
+
+  .tweet {
+    font-size: 0.9rem;
+  }
+
+  .nickname {
+    font-size: 1.1rem;
+  }
+
+  #editProfileForm input,
+  #editProfileForm button {
+    font-size: 14px;
+  }
+}
