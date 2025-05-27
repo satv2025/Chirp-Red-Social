@@ -117,5 +117,5 @@ window.checkCaptcha = async function (token) {
 function entrarConNickname(nick) {
   // Redirigir a home.html pasando el nick por query string
   console.log("Entrando con nickname:", nick);
-  window.location.href = `home.html?nick=${encodeURIComponent(nick)}`;
+  window.location.href = `home.html`;
 }
