@@ -39,7 +39,7 @@ onAuthStateChanged(auth, async (user) => {
 
     if (!currentNick) {
       alert('No se encontró nickname, vuelve a iniciar sesión.');
-      window.location.href = 'index.html';
+      window.location.href = 'index';
       return;
     }
 
@@ -51,7 +51,7 @@ onAuthStateChanged(auth, async (user) => {
       cargarChirps();
     } else {
       alert('Acceso no autorizado. Por favor inicia sesión nuevamente.');
-      window.location.href = 'index.html';
+      window.location.href = 'index';
     }
   } else {
     try {
