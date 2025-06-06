@@ -377,6 +377,7 @@ footer.footer {
     pjsdiv > * {
       font-family: Chirp !important;
       opacity: 1 !important;
+      font-weight: 700;
     }
 
     * {
