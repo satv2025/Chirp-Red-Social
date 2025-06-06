@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ChirpTV - Video Crónica</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css" />
-  <style>
-    #ChirpPlayer {
-  width: 100%;
-  height: 506px;
-  max-width: 900px;
-}
+  <title>Bitmovin Player Demo</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
 
-pjsdiv:fullscreen video,
-pjsdiv:fullscreen iframe,
-pjsdiv:fullscreen embed,
-pjsdiv:fullscreen canvas,
-pjsdiv:fullscreen object,
-pjsdiv:fullscreen img,
-pjsdiv:fullscreen audio,
-pjsdiv:fullscreen source,
-pjsdiv:fullscreen div {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  transform: none !important;
-  zoom: 1 !important;
-}
+  <!-- Bitmovin Player -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js"></script>
+
+  <style>
+    .player-wrapper {
+      width: 90%;
+      margin: 20px auto;
+      box-shadow: 0 0 30px rgba(0,0,0,0.7);
+    }
   </style>
 </head>
 <body>
+<div class="player-wrapper">
+  <div id="player"></div>
+</div>
 
-  <header>
-    <h1>ChirpTV</h1>
-    <p class="slogan-text">Noticias sin filtro</p>
-  </header>
+<script type="text/javascript">
+  var conf = {
+    key: 'c20474c3-b9b0-41ac-828c-3e4be5ce6d11',
+    analytics: {
+      key: '3a1f0572-4e06-478c-90fe-49456c45657b',
+      title: 'Reite666 T1 E1 - Cilio debe regresar',
+      videoId: 'wizard-Reite666_T1_E1_-_Cilio_debe_re-1749237252686',
+    },
+  };
 
-  <main class="container">
-    <div id="ChirpPlayer" class="video-player"></div>
-    <p class="author" style="text-align:center; color: var(--main-color-dark); font-weight:700;">
-      Crónica Noticias en Vivo
-    </p>
-  </main>
+  var source = {
+    title: 'Reite666 T1 E1 - Cilio debe regresar',
+    hls: 'https://cdn.jsdelivr.net/gh/satv2025/media@refs/heads/main/videos/reite666/t1/E1/REITE666%20T1%20E1.m3u8',
+  };
 
-  <footer class="footer">
-    Chirp 2025 © – Todos los derechos reservados
-  </footer>
-
-   <script src="https://chirp.solargentinotv.com.ar/assets/ChirpPlayer2025/ChirpPlayerPro.js" type="text/javascript"></script>
-    <script>
-        var player = new Playerjs({
-            id: "ChirpPlayer",
-            file: "https://www.youtube.com/watch?v=GBAVrpzXwc8",
-        });
+  var player = new bitmovin.player.Player(document.getElementById('player'), conf);
+  player.load(source);
 </script>
 
 </body>
