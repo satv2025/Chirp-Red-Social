@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>ChirpTV Noticias</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="tu-css.css">
+  <meta charset="UTF-8" />
+  <title>ChirpTV - Video Crónica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css" />
   <script src="https://chirp.solargentinotv.com.ar/assets/chirpplayer/ChirpPlayer2025.js"></script>
 </head>
 <body>
@@ -15,41 +15,20 @@
   </header>
 
   <main class="container">
-
-    <!-- Reproductores -->
-    <div id="player1" class="video-player"></div>
-    <p class="author">Resumen Argentina vs Chile (TyC Sports)</p>
-
-    <div id="player2" class="video-player"></div>
-    <p class="author">Telefe Noticias en Vivo</p>
-
-    <div id="player3" class="video-player"></div>
-    <p class="author">C5N en Vivo</p>
-
-    <div id="player4" class="video-player"></div>
-    <p class="author">TN - Todo Noticias en Vivo</p>
-
-    <div id="player5" class="video-player"></div>
-    <p class="author">Crónica Noticias en Vivo</p>
-
+    <div id="player" class="video-player"></div>
+    <p class="author" style="text-align:center; color: var(--main-color-dark); font-weight:700;">
+      Crónica Noticias en Vivo
+    </p>
   </main>
 
   <footer class="footer">
     Chirp 2025 © – Todos los derechos reservados
   </footer>
 
-  <!-- Script para cargar todos los players -->
   <script>
-    const players = [
-      { id: "player1", file: "https://www.youtube.com/watch?v=8e3J8Ljs7uU" }, // Argentina vs Chile
-      { id: "player2", file: "https://www.youtube.com/watch?v=bwjx7rN4kr4" }, // Telefe
-      { id: "player3", file: "https://www.youtube.com/watch?v=jTDk5CswBVk" }, // C5N
-      { id: "player4", file: "https://www.youtube.com/watch?v=cb12KmMMDJA" }, // TN
-      { id: "player5", file: "https://www.youtube.com/watch?v=TcxGLc_G_mY" }  // Crónica TV
-    ];
-
-    players.forEach(p => {
-      new Playerjs({ id: p.id, file: p.file });
+    new Playerjs({
+      id: "player",
+      file: "https://www.youtube.com/watch?v=TcxGLc_G_mY"
     });
   </script>
 
