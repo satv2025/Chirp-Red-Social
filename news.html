@@ -1,47 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Repro estilo ChirpTV</title>
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
-  <style>
-    body {
-      background: #ffd5e5;
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plyr con controles estilo DPlayer</title>
 
-    .player-wrapper {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      max-width: 800px;
-      width: 90%;
-    }
+<!-- Plyr CSS -->
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
-    .plyr__video-wrapper iframe {
-      border-radius: 12px;
-    }
-  </style>
+<style>
+  body {
+    background: #121212;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  .player-container {
+    width: 640px;
+    position: relative;
+  }
+  video {
+    width: 100%;
+    border-radius: 8px;
+    background: black;
+  }
+  /* Controles personalizados tipo DPlayer */
+  .controls {
+    margin-top: 10px;
+    background: #222;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .btn-play {
+    background: none;
+    border: none;
+    color: #0ff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    background: #444;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+  .progress {
+    background: #0ff;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  .time {
+    font-size: 14px;
+    width: 60px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .volume {
+    width: 100px;
+  }
+  input[type="range"] {
+    width: 100%;
+  }
+</style>
 </head>
 <body>
-  <div class="player-wrapper">
-    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="C9S87Or4Xyk"></div>
-  </div>
 
-  <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
-  <script>
-    const player = new Plyr('#player', {
-      youtube: {
-        noCookie: true,
-        rel: 0
-      }
-    });
-  </script>
+<div class="player-container">
+  <!-- Video sin controles para que no interfieran -->
+  <video id="video" crossorigin="anonymous" playsinline>
+    <source src="https://cdn.plyr.io/static/blank.mp4" type="video/mp4" />
+    Tu navegador no soporta video HTML5.
+  </video>
+
+  <div class="controls">
+    <button class="btn-play" id="btnPlay" title="Play/Pause">▶️</button>
+    
+    <div class="progress-bar" id="progressBar" title="Seek">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="time" id="currentTime">0:00</div>
+    <div class="time" id="duration">0:00</div>
+
+    <input type="range" id="volume" class="volume" min="0" max="1" step="0.01" title="Volumen" />
+  </div>
+</div>
+
+<!-- Plyr JS -->
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+<script>
+  // Inicializamos Plyr (sin controles)
+  const player = new Plyr('#video', { controls: [] });
+
+  // Referencias a controles
+  const btnPlay = document.getElementById('btnPlay');
+  const progressBar = document.getElementById('progressBar');
+  const progress = document.getElementById('progress');
+  const currentTimeElem = document.getElementById('currentTime');
+  const durationElem = document.getElementById('duration');
+  const volumeSlider = document.getElementById('volume');
+
+  // Función para formatear tiempo en mm:ss
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60) || 0;
+    const seconds = Math.floor(time % 60) || 0;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  // Actualiza botón play/pause
+  function updatePlayButton() {
+    if (player.playing) {
+      btnPlay.textContent = '⏸️';
+    } else {
+      btnPlay.textContent = '▶️';
+    }
+  }
+
+  // Play/Pause toggle
+  btnPlay.addEventListener('click', () => {
+    if (player.playing) {
+      player.pause();
+    } else {
+      player.play();
+    }
+  });
+
+  // Actualizamos duración y tiempo actual cuando metadata cargue
+  player.on('ready', () => {
+    durationElem.textContent = formatTime(player.duration);
+    volumeSlider.value = player.volume;
+  });
+
+  // Actualizamos barra progreso y tiempo actual durante reproducción
+  player.on('timeupdate', () => {
+    const current = player.currentTime;
+    const duration = player.duration;
+    const percent = (current / duration) * 100;
+    progress.style.width = `${percent}%`;
+    currentTimeElem.textContent = formatTime(current);
+    updatePlayButton();
+  });
+
+  // Click en barra de progreso para hacer seek
+  progressBar.addEventListener('click', (e) => {
+    const rect = progressBar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    const percent = clickX / width;
+    const seekTime = percent * player.duration;
+    player.currentTime = seekTime;
+  });
+
+  // Control de volumen
+  volumeSlider.addEventListener('input', (e) => {
+    player.volume = parseFloat(e.target.value);
+  });
+
+  // Actualiza botón al cambiar estado de reproducción (play, pause)
+  player.on('play', updatePlayButton);
+  player.on('pause', updatePlayButton);
+</script>
+
 </body>
 </html>
