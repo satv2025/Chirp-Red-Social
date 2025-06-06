@@ -31,18 +31,12 @@
     Chirp 2025 © – Todos los derechos reservados
   </footer>
 
-   <script src="https://chirp.solargentinotv.com.ar/assets/ChirpPlayer2025/ChirpPlayer2025.js"></script>
+   <script src="https://chirp.solargentinotv.com.ar/assets/ChirpPlayer2025/ChirpPlayer2025.js" type="text/javascript"></script>
     <script>
         var player = new Playerjs({
             id: "ChirpPlayer",
             file: "https://www.youtube.com/watch?v=GBAVrpzXwc8",
         });
-
-    // Función para cargar un episodio con autoplay
-    function loadEpisode(videoPath) {
-        player.api("file", videoPath);
-        player.api("play");
-    }
 </script>
 
 </body>
