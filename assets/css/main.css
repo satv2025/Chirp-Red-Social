@@ -371,6 +371,7 @@ footer.footer {
       border-radius: 6px;
       color: #a35d00;
       font-size: 0.9rem;
+      text-align: justify;
     }
 
 /* --- Estilos Responsivos --- */
