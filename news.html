@@ -1,86 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chirp con Videos de Noticias</title>
-  <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css" />
-  <script src="https://chirp.solargentinotv.com.ar/assets/ChirpPlayer/ChirpPlayer2025.js"></script>
+  <meta charset="UTF-8">
+  <title>ChirpTV Noticias</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css">
+  <script src="https://chirp.solargentinotv.com.ar/assets/chirpplayer/ChirpPlayer2025.js"></script>
 </head>
 <body>
+
   <header>
-    <h1>Chirp News</h1>
-    <p class="slogan-text">Noticias y comunidad, siempre anónimos.</p>
-    <nav>
-      <button class="home-btn">Inicio</button>
-    </nav>
+    <h1>ChirpTV</h1>
+    <p class="slogan-text">Noticias sin filtro</p>
   </header>
 
   <main class="container">
-    <article class="chirp">
-      <p><strong>Bienvenido</strong> a Chirp News, el espacio para ver noticias y comentar libremente.</p>
-    </article>
 
-    <!-- Reproductores -->
-    <section id="videos">
-      <!-- Videocontainer para cada reproductor -->
-      <div class="video-container">
-        <h2>Argentina Chile 2025 – 5 de junio 2025</h2>
-        <div id="MPlayer1"></div>
-      </div>
+    <!-- Resumen Argentina - Chile -->
+    <div class="tweet">
+      <div id="player1"></div>
+      <p class="author">Resumen Argentina - Chile (TyC Sports)</p>
+    </div>
+    <script>
+      var player1 = new Playerjs({
+        id: "player1",
+        file: "https://www.youtube.com/watch?v=8e3J8Ljs7uU"
+      });
+    </script>
 
-      <div class="video-container">
-        <h2>EN VIVO Telefe Noticias 24HS</h2>
-        <div id="MPlayer2"></div>
-      </div>
+    <!-- Telefe Noticias En Vivo -->
+    <div class="tweet">
+      <div id="player2"></div>
+      <p class="author">Telefe Noticias (En Vivo)</p>
+    </div>
+    <script>
+      var player2 = new Playerjs({
+        id: "player2",
+        file: "https://www.youtube.com/watch?v=bwjx7rN4kr4"
+      });
+    </script>
 
-      <div class="video-container">
-        <h2>C5N en vivo – Últimas noticias</h2>
-        <div id="MPlayer3"></div>
-      </div>
+    <!-- C5N En Vivo -->
+    <div class="tweet">
+      <div id="player3"></div>
+      <p class="author">C5N (En Vivo)</p>
+    </div>
+    <script>
+      var player3 = new Playerjs({
+        id: "player3",
+        file: "https://www.youtube.com/watch?v=jTDk5CswBVk"
+      });
+    </script>
 
-      <div class="video-container">
-        <h2>Telefe Noticias – Tiros y un nene baleado</h2>
-        <div id="MPlayer4"></div>
-      </div>
+    <!-- TN Noticias En Vivo -->
+    <div class="tweet">
+      <div id="player4"></div>
+      <p class="author">TN - Todo Noticias (En Vivo)</p>
+    </div>
+    <script>
+      var player4 = new Playerjs({
+        id: "player4",
+        file: "https://www.youtube.com/watch?v=cb12KmMMDJA"
+      });
+    </script>
 
-      <div class="video-container">
-        <h2>C5N – Masiva marcha contra el ajuste</h2>
-        <div id="MPlayer5"></div>
-      </div>
+    <!-- C5N - Marcha contra el ajuste -->
+    <div class="tweet">
+      <div id="player5"></div>
+      <p class="author">Marcha contra el ajuste - C5N</p>
+    </div>
+    <script>
+      var player5 = new Playerjs({
+        id: "player5",
+        file: "https://www.youtube.com/watch?v=Tf4P4Yaaqss"
+      });
+    </script>
 
-      <div class="video-container">
-        <h2>Telefe Noticias – Detuvieron a un motochorro</h2>
-        <div id="MPlayer6"></div>
-      </div>
-
-      <!-- Agregá más replicando este bloque hasta 20 -->
-      <!-- ... -->
-
-    </section>
   </main>
 
-  <footer class="footer">Chirp 2025 © – Todos los derechos reservados</footer>
+  <footer class="footer">
+    Chirp 2025 © – Todos los derechos reservados
+  </footer>
 
-  <script>
-    const videos = [
-      "https://www.youtube.com/watch?v=abc123ARGCHILE",             // 1
-      "https://www.youtube.com/watch?v=bwjx7rN4kr4",                // Telefe en vivo :contentReference[oaicite:0]{index=0}
-      "https://www.youtube.com/watch?v=jTDk5CswBVk",                // C5N en vivo :contentReference[oaicite:1]{index=1}
-      "https://www.youtube.com/watch?v=5Ty6cTXMgr0",                // Tiros y nene baleado :contentReference[oaicite:2]{index=2}
-      "https://www.youtube.com/watch?v=Tf4P4Yaaqss",                // Marcha contra el ajuste :contentReference[oaicite:3]{index=3}
-      "https://www.youtube.com/watch?v=77Lz2hx0Fyk",                // Detención motochorro :contentReference[oaicite:4]{index=4}
-      // Seguís agregando URLs reales de canales como TN, Crónica, etc.
-      "https://www.youtube.com/watch?v=-eZukSRS44k",                // Elon Musk y Trump – Telefe :contentReference[oaicite:5]{index=5}
-      // Hasta completar 20.
-    ];
-
-    videos.forEach((url, i) => {
-      new Playerjs({
-        id: "MPlayer" + (i + 1),
-        file: url
-      });
-    });
-  </script>
 </body>
 </html>
