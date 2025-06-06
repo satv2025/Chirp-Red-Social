@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chirp con Videos de Noticias</title>
+  <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css" />
+  <script src="https://chirp.solargentinotv.com.ar/assets/ChirpPlayer/ChirpPlayer2025.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Chirp News</h1>
+    <p class="slogan-text">Noticias y comunidad, siempre anónimos.</p>
+    <nav>
+      <button class="home-btn">Inicio</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="chirp">
+      <p><strong>Bienvenido</strong> a Chirp News, el espacio para ver noticias y comentar libremente.</p>
+    </article>
+
+    <!-- Reproductores -->
+    <section id="videos">
+      <!-- Videocontainer para cada reproductor -->
+      <div class="video-container">
+        <h2>Argentina Chile 2025 – 5 de junio 2025</h2>
+        <div id="MPlayer1"></div>
+      </div>
+
+      <div class="video-container">
+        <h2>EN VIVO Telefe Noticias 24HS</h2>
+        <div id="MPlayer2"></div>
+      </div>
+
+      <div class="video-container">
+        <h2>C5N en vivo – Últimas noticias</h2>
+        <div id="MPlayer3"></div>
+      </div>
+
+      <div class="video-container">
+        <h2>Telefe Noticias – Tiros y un nene baleado</h2>
+        <div id="MPlayer4"></div>
+      </div>
+
+      <div class="video-container">
+        <h2>C5N – Masiva marcha contra el ajuste</h2>
+        <div id="MPlayer5"></div>
+      </div>
+
+      <div class="video-container">
+        <h2>Telefe Noticias – Detuvieron a un motochorro</h2>
+        <div id="MPlayer6"></div>
+      </div>
+
+      <!-- Agregá más replicando este bloque hasta 20 -->
+      <!-- ... -->
+
+    </section>
+  </main>
+
+  <footer class="footer">Chirp 2025 © – Todos los derechos reservados</footer>
+
+  <script>
+    const videos = [
+      "https://www.youtube.com/watch?v=abc123ARGCHILE",             // 1
+      "https://www.youtube.com/watch?v=bwjx7rN4kr4",                // Telefe en vivo :contentReference[oaicite:0]{index=0}
+      "https://www.youtube.com/watch?v=jTDk5CswBVk",                // C5N en vivo :contentReference[oaicite:1]{index=1}
+      "https://www.youtube.com/watch?v=5Ty6cTXMgr0",                // Tiros y nene baleado :contentReference[oaicite:2]{index=2}
+      "https://www.youtube.com/watch?v=Tf4P4Yaaqss",                // Marcha contra el ajuste :contentReference[oaicite:3]{index=3}
+      "https://www.youtube.com/watch?v=77Lz2hx0Fyk",                // Detención motochorro :contentReference[oaicite:4]{index=4}
+      // Seguís agregando URLs reales de canales como TN, Crónica, etc.
+      "https://www.youtube.com/watch?v=-eZukSRS44k",                // Elon Musk y Trump – Telefe :contentReference[oaicite:5]{index=5}
+      // Hasta completar 20.
+    ];
+
+    videos.forEach((url, i) => {
+      new Playerjs({
+        id: "MPlayer" + (i + 1),
+        file: url
+      });
+    });
+  </script>
+</body>
+</html>

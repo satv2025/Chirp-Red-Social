@@ -374,6 +374,14 @@ footer.footer {
       text-align: justify;
     }
 
+    pjsdiv > * {
+      font-family: Chirp !important;
+    }
+
+    * {
+      font-family: Chirp !important;
+    }
+
 /* --- Estilos Responsivos --- */
 
 @media (max-width: 1024px) {
