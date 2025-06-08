@@ -8,6 +8,39 @@
   <link rel="stylesheet" href="assets/css/DPlayerVChirp.css">
   <link rel="stylesheet" href="https://unpkg.com/dplayer/dist/DPlayer.min.css">
   <link rel="stylesheet" href="assets/css/dropdown.css">
+  <style>
+    #videoContainer {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    #videoThumbnail {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+    #playButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #e91e63;
+      border: none;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+    }
+    #playButton svg {
+      fill: white;
+      width: 40px;
+      height: 40px;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,7 +58,18 @@
         <div data-src="Conmebol">Conmebol</div>
       </div>
     </div>
-    <div id="ChirpPlayer" class="video-player"></div>
+
+    <div id="videoContainer">
+      <img id="videoThumbnail" src="https://chirp.solargentinotv.com.ar/assets/media/images/thumbs/conmebol/eliminatoriassudamericanas2026/chiargthumb.jpg" alt="Miniatura del video" />
+      <button id="playButton" aria-label="Reproducir video">
+        <svg viewBox="0 0 64 64" >
+          <polygon points="16,12 52,32 16,52" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="ChirpPlayer" class="video-player" style="display:none;"></div>
+
     <p class="author" style="text-align:center; color: var(--main-color); font-weight:700;">
       CON LO JUSTO: TRAS UN PARTIDO CERRADÍSIMO, LA ARGENTINA DE SCALONI SACÓ UN 0-1 PARA CON EL CHILE DEL TIGRE GARECA Y SUMÓ DE A 3
     </p>
@@ -37,18 +81,6 @@
 
 <script src="https://unpkg.com/dplayer/dist/DPlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-  window.dp = new DPlayer({
-    container: document.getElementById('ChirpPlayer'),
-    video: {
-      url: 'https://chirp.solargentinotv.com.ar/assets/media/videos/chiargtelefe.mp4',
-      type: 'auto',
-      poster: 'https://chirp.solargentinotv.com.ar/assets/media/images/thumbs/conmebol/eliminatoriassudamericanas2026/chiargthumb.jpg'
-      autoplay: false,    // Importante para que no arranque solo y se vea el poster
-      screenshot: true    // Opcional, para permitir capturas (no afecta poster)
-    }
-  });
-</script>
 <script src="assets/js/timedivider.js"></script>
 <script src="assets/js/timeformatter.js"></script>
 <script src="assets/js/dropdown.js"></script>
