@@ -9,53 +9,65 @@
   <link rel="stylesheet" href="https://unpkg.com/dplayer/dist/DPlayer.min.css">
   <link rel="stylesheet" href="assets/css/dropdown.css">
   <style>
-    #playerWrapper {
+#playerWrapper {
   width: 100%;
-  height: 506px;
   max-width: 900px;
+  margin: 1.2em auto;
+  height: 506px; /* Altura fija por defecto */
   position: relative;
-  margin-left: 1.2em;
-  margin-top: 1.2em;
-    }
+}
 
+/* Hacemos el reproductor ocupar todo el wrapper */
+#ChirpPlayer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+/* Miniatura y botón */
 #videoContainer {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
+  cursor: pointer;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.6s ease;
   background: transparent;
-  width: 100%;
-  height: 100%;
 }
 
-    #videoThumbnail {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    #playButton {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background-color: #e91e63;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0.85;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
-      transition: background-color 0.3s ease;
-      z-index: 3;
-    }
+#videoThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#playButton {
+  width: 64px;
+  height: 64px;
+}
+
+/* 📱 SOLO EN MÓVILES: hacemos el reproductor responsivo horizontal */
+@media screen and (max-width: 768px) {
+  #playerWrapper {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  #ChirpPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #videoThumbnail {
+    object-fit: cover;
+  }
+}
     #playButton:hover {
       background-color: #b81a53;
     }
