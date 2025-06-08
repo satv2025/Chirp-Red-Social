@@ -31,7 +31,6 @@
   padding: 10px 16px;
   cursor: pointer;
   color: #e91e63;
-  border-bottom: 1px solid #e91e63;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
