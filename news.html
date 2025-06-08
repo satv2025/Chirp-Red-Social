@@ -18,13 +18,13 @@
 
   <main class="container">
     <div class="dropdown" id="videoDropdown">
-  <button class="dropdown-toggle">Elegí señal</button>
-  <div class="dropdown-menu">
-    <div data-src="chiargtelefe.mp4">Telefe</div>
-    <div data-src="chiargtycsports.mp4">TyC Sports</div>
-    <div data-src="chiargconmebol.mp4">Conmebol</div>
-  </div>
-</div>
+      <button class="dropdown-toggle">Elegí señal</button>
+      <div class="dropdown-menu">
+        <div data-src="Telefe">Telefe</div>
+        <div data-src="TyC Sports">TyC Sports</div>
+        <div data-src="Conmebol">Conmebol</div>
+      </div>
+    </div>
     <div id="ChirpPlayer" class="video-player"></div>
     <p class="author" style="text-align:center; color: var(--main-color); font-weight:700;">
       CON LO JUSTO: TRAS UN PARTIDO CERRADÍSIMO, LA ARGENTINA DE SCALONI SACÓ UN 0-1 PARA CON EL CHILE DEL TIGRE GARECA Y SUMÓ DE A 3
@@ -38,12 +38,12 @@
 <script src="https://unpkg.com/dplayer/dist/DPlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
-  // Declaralo como window.dp para que esté disponible globalmente
   window.dp = new DPlayer({
     container: document.getElementById('ChirpPlayer'),
     video: {
-      url: 'assets/media/videos/chiargtelefe.mp4',
+      url: 'https://chirp.solargentinotv.com.ar/assets/media/videos/chiargtelefe.mp4',
       type: 'auto'
+      poster: 'https://chirp.solargentinotv.com.ar/assets/media/images/thumbs/conmebol/eliminatoriassudamericanas2026/chiargthumb.jpg'
     }
   });
 </script>
