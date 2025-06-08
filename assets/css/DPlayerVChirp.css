@@ -1,0 +1,39 @@
+.dplayer-bar, .dplayer-played, .dplayer-loaded {
+    height: 5px !important;
+}
+
+.dplayer-played {
+    background: #e91e63 !important;
+}
+
+.dplayer-thumb {
+    background: #e91e63 !important;
+}
+
+.dplayer-volume-bar-inner {
+    background: #e91e63 !important;
+}
+
+.dplayer-volume-bar-inner .dplayer-thumb {
+    background: #e91e63 !important;
+}
+
+.dplayer-controller .dplayer-icons {
+    bottom: -9px !important;
+}
+
+.dplayer-controller {
+    bottom: 18px !important;
+}
+
+.dplayer svg path, .dplayer svg circle {
+    fill: #e91e63 !important;
+}
+
+.dplayer-ptime, .dplayer-dtime, .dplayer-ptime::after, .dplayer-dtime::after, #text {
+    color: #e91e63 !important;
+}
+
+.dplayer-controller .dplayer-icons .dplayer-volume .dplayer-volume-bar-wrap {
+    margin-bottom: -0.09em !important;
+}
