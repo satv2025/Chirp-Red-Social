@@ -4,41 +4,66 @@
   <meta charset="UTF-8" />
   <title>CON LO JUSTO: TRAS UN PARTIDO CERRADÍSIMO, LA ARGENTINA DE SCALONI SACÓ UN 0-1 PARA CON EL CHILE DEL TIGRE GARECA Y SUMÓ DE A 3 - ChirpTV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/DPlayerVChirp.css">
   <link rel="stylesheet" href="https://unpkg.com/dplayer/dist/DPlayer.min.css">
   <link rel="stylesheet" href="assets/css/dropdown.css">
   <style>
+    #playerWrapper {
+  width: 100%;
+  height: 506px;
+  max-width: 900px;
+  position: relative;
+  margin-left: 1.2em;
+  margin-top: 1.2em;
+    }
+
     #videoContainer {
-      position: relative;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    #videoThumbnail {
-      width: 100%;
-      display: block;
-      cursor: pointer;
-    }
-    #playButton {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #e91e63;
-      border: none;
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
+      top: 0; left: 0; right: 0; bottom: 0;
       cursor: pointer;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+      transition: opacity 0.6s ease;
+      background: transparent;
     }
-    #playButton svg {
+
+    #videoThumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    #playButton {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: #e91e63;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+      transition: background-color 0.3s ease;
+      z-index: 3;
+    }
+    #playButton:hover {
+      background-color: #b81a53;
+    }
+    #playButton svg polygon {
       fill: white;
-      width: 40px;
-      height: 40px;
+    }
+    .fade-out {
+      opacity: 0;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -59,16 +84,18 @@
       </div>
     </div>
 
-    <div id="videoContainer">
-      <img id="videoThumbnail" src="https://chirp.solargentinotv.com.ar/assets/media/images/thumbs/conmebol/eliminatoriassudamericanas2026/chiargthumb.jpg" alt="Miniatura del video" />
-      <button id="playButton" aria-label="Reproducir video">
-        <svg viewBox="0 0 64 64" >
-          <polygon points="16,12 52,32 16,52" />
-        </svg>
-      </button>
-    </div>
+    <div id="playerWrapper">
+      <div id="ChirpPlayer" class="video-player"></div>
 
-    <div id="ChirpPlayer" class="video-player" style="display:none;"></div>
+      <div id="videoContainer" aria-label="Miniatura del video con botón de reproducción" role="button" tabindex="0">
+        <img id="videoThumbnail" src="assets/media/images/thumbs/conmebol/eliminatoriassudamericanas2026/chiargthumb.jpg" alt="Miniatura del video" />
+        <button id="playButton" aria-label="Reproducir video">
+          <svg viewBox="0 0 64 64" >
+            <polygon points="16,12 52,32 16,52" />
+          </svg>
+        </button>
+      </div>
+    </div>
 
     <p class="author" style="text-align:center; color: var(--main-color); font-weight:700;">
       CON LO JUSTO: TRAS UN PARTIDO CERRADÍSIMO, LA ARGENTINA DE SCALONI SACÓ UN 0-1 PARA CON EL CHILE DEL TIGRE GARECA Y SUMÓ DE A 3
@@ -81,6 +108,46 @@
 
 <script src="https://unpkg.com/dplayer/dist/DPlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const playBtn = document.getElementById('playButton');
+    const videoContainer = document.getElementById('videoContainer');
+    const playerContainer = document.getElementById('ChirpPlayer');
+
+    // Inicializar DPlayer sin autoplay
+    window.dp = new DPlayer({
+      container: playerContainer,
+      video: {
+        url: 'https://chirp.solargentinotv.com.ar/assets/media/videos/chiargtelefe.mp4',
+        type: 'auto',
+        poster: 'https://chirp.solargentinotv.com.ar/assets/media/images/thumbs/conmebol/eliminatoriassudamericanas2026/chiargthumb.jpg',
+        autoplay: false
+      }
+    });
+
+    function startVideo() {
+      videoContainer.classList.add('fade-out');
+      videoContainer.addEventListener('transitionend', () => {
+        videoContainer.style.display = 'none';
+        window.dp.play();
+      }, { once: true });
+    }
+
+    playBtn.addEventListener('click', startVideo);
+    videoContainer.addEventListener('click', e => {
+      // Evitar que el click en el botón se dispare dos veces
+      if(e.target !== playBtn) startVideo();
+    });
+
+    // Para accesibilidad: reproducir con Enter o Space en el div overlay
+    videoContainer.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        startVideo();
+      }
+    });
+  });
+</script>
 <script src="assets/js/timedivider.js"></script>
 <script src="assets/js/timeformatter.js"></script>
 <script src="assets/js/dropdown.js"></script>
