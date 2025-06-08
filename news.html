@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://chirp.solargentinotv.com.ar/assets/css/main.css">
   <link rel="stylesheet" href="assets/css/DPlayerVChirp.css">
   <link rel="stylesheet" href="https://unpkg.com/dplayer/dist/DPlayer.min.css">
+  <link rel="stylesheet" href="assets/css/dropdown.css">
   <style>
     #ChirpPlayer {
       width: 100%;
@@ -26,6 +27,14 @@
   </header>
 
   <main class="container">
+    <div class="dropdown" id="videoDropdown">
+  <button class="dropdown-toggle">Elegí señal</button>
+  <div class="dropdown-menu">
+    <div data-src="chiargtelefe.mp4">Telefe</div>
+    <div data-src="chiargtycsports.mp4">TyC Sports</div>
+    <div data-src="chiargconmebol.mp4">Conmebol</div>
+  </div>
+</div>
     <div id="ChirpPlayer" class="video-player"></div>
     <p class="author" style="text-align:center; color: var(--main-color-dark); font-weight:700;">
       CON LO JUSTO: TRAS UN PARTIDO CERRADÍSIMO, LA ARGENTINA DE SCALONI SACÓ UN 0-1 PARA CON EL CHILE DEL TIGRE GARECA Y SUMÓ DE A 3
@@ -36,31 +45,18 @@
     Chirp 2025 © – Todos los derechos reservados
   </footer>
 
-  <script src="https://unpkg.com/dplayer/dist/DPlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    const dp = new DPlayer({
-      container: document.getElementById('ChirpPlayer'),
-      video: {
-        url: 'https://cdn.jsdelivr.net/gh/satv2025/media@main/videos/app/e1/Asesinato%20Para%20Principiantes%20-%20T1%20E1.m3u8',
-        type: 'hls'
-      }
-    });
-  </script>
+<script src="https://unpkg.com/dplayer/dist/DPlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
-  document.querySelectorAll('.dplayer-time').forEach(el => {
-    el.childNodes.forEach((node) => {
-      if (node.nodeType === 3 && node.textContent.includes('/')) {
-        // Crear un span nuevo con el /
-        const span = document.createElement('span');
-        span.style.color = '#e91e63';
-        span.textContent = ' / ';
-
-        // Reemplazar el nodo de texto por el span
-        el.replaceChild(span, node);
-      }
-    });
+  // Declaralo como window.dp para que esté disponible globalmente
+  window.dp = new DPlayer({
+    container: document.getElementById('ChirpPlayer'),
+    video: {
+      url: 'assets/media/videos/chiargtelefe.mp4',
+      type: 'auto'
+    }
   });
 </script>
+<script src="assets/js/dropdown.js"></script>
 </body>
 </html>
