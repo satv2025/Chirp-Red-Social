@@ -30,8 +30,38 @@
     fill: #e91e63 !important;
 }
 
-.dplayer-ptime, .dplayer-dtime, .dplayer-ptime::after, .dplayer-dtime::after, #text {
-    color: #e91e63 !important;
+.dplayer-time {
+  position: relative !important;
+  width: 100px !important;
+  height: 1.5em;
+}
+
+.dplayer-ptime {
+  position: absolute !important;
+  left: 0 !important;
+  top: 55% !important;
+  transform: translateY(-50%);
+  color: #e91e63 !important;
+  width: 40px;
+  text-align: left;
+}
+
+.dplayer-timedivider {
+  position: absolute !important;
+  left: 45px !important;
+  top: 55% !important;
+  transform: translateY(-50%);
+  color: #e91e63 !important;
+}
+
+.dplayer-dtime {
+  position: absolute !important;
+  left: 60px !important;
+  top: 55% !important;
+  transform: translateY(-50%);
+  color: #e91e63 !important;
+  width: 40px;
+  text-align: left;
 }
 
 .dplayer-controller .dplayer-icons .dplayer-volume .dplayer-volume-bar-wrap {
