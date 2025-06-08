@@ -22,7 +22,9 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
+  border-radius: 6px;
 }
 
 /* Miniatura y botón */
@@ -42,6 +44,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 6px !important;
 }
 
 #playButton {
@@ -78,6 +81,15 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    /* Efecto hover */
+#playButton:hover {
+  background: #fff;
+}
+
+#playButton:hover svg polygon {
+  fill: #e91e63;
+}
   </style>
 </head>
 <body>
