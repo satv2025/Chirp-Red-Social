@@ -159,3 +159,7 @@
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::after {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5) !important;
 }
+
+.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:after {
+    box-shadow: -3px 0 0px rgba(0, 0, 0, 0.5) !important;
+}
