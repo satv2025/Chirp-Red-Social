@@ -95,10 +95,35 @@
 }
 
 /* Hover para la opción Loop */
+.dplayer-setting-origin-panel .dplayer-setting-loop {
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover {
     background: #fff !important;
 }
 
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-label {
     color: #e91e63 !important;
+}
+
+/* Líneas rosas en ::before y ::after para Loop */
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover::before,
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #e91e63;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover::before {
+    left: 5px;
+}
+
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover::after {
+    right: 5px;
 }
