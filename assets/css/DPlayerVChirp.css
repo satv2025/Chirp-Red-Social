@@ -70,6 +70,9 @@
 
 .dplayer-setting-speed-item:hover {
     background: #fff !important;
+}
+
+.dplayer-setting-speed-item:hover .dplayer-label {
     color: #e91e63 !important;
 }
 
@@ -78,6 +81,24 @@
     background: #e91e63 !important;
 }
 
-.dplayer-setting-box svg {
+.dplayer svg path {
     fill: white !important;
+}
+
+/* Hover para opciones de Speed */
+.dplayer-setting-speed-panel .dplayer-setting-speed-item:hover {
+    background: #fff !important;
+}
+
+.dplayer-setting-speed-panel .dplayer-setting-speed-item:hover .dplayer-label {
+    color: #e91e63 !important;
+}
+
+/* Hover para la opción Loop */
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover {
+    background: #fff !important;
+}
+
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-label {
+    color: #e91e63 !important;
 }
