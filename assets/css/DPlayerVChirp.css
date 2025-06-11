@@ -144,13 +144,18 @@
 /* Cambiar color en ::before y ::after del label en hover Loop */
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::after {
     background: #e91e63 !important;
-    box-shadow: 0 0 10px rgba(233, 30, 99, 0.6) !important;
 }
 
 .dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:before {
     background: rgb(255 255 255 / 80%) !important;
 }
 
-.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:hover::before {
+/* Cambia la pista (::before) a rosa si está activado y se pasa el mouse por el contenedor */
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle input:checked + label::before {
     background: #e91e63 !important;
+}
+
+/* Aplica sombra paralela a la bolita (::after) cuando se pasa el mouse por el contenedor */
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::after {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5) !important;
 }
