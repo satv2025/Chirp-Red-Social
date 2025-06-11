@@ -102,6 +102,18 @@
     background: #fff !important;
 }
 
+.dplayer-setting-speed .dplayer-toggle svg path {
+    fill: #fff !important;
+}
+
+.dplayer-setting-speed .dplayer-toggle svg path:hover {
+    fill: #e91e63 !important;
+}
+
+.dplayer-settign-speed .dplayer-label:hover {
+    color: #e91e63 !important;
+}
+
 .dplayer-setting-speed-panel .dplayer-setting-speed-item:hover .dplayer-label {
     color: #e91e63 !important;
 }
