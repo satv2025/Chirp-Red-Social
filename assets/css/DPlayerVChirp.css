@@ -93,8 +93,16 @@
     color: #e91e63 !important;
 }
 
-.dplayer-controller .dplayer-icons .dplayer-setting .dplayer-setting-item:hover {
-    background-color: #fff !important;
+.dplayer-setting-item:hover {
+    background: #fff !important;
+}
+
+.dplayer .dplayer-setting-speed:hover .dplayer-label {
+    color: #e91e63 !important;
+}
+
+.dplayer .dplayer-setting-speed:hover .dplayer-toggle svg path {
+    fill: #e91e63 !important;
 }
 
 /* Hover para opciones de Speed */
@@ -136,7 +144,7 @@
 /* Cambiar color en ::before y ::after del label en hover Loop */
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::before,
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::after {
-    background-color: #e91e63 !important;
+    background: #e91e63 !important;
 }
 
 /* Transiciones suaves */
