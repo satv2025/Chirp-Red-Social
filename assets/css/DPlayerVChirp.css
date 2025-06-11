@@ -95,11 +95,6 @@
 }
 
 /* Hover para la opción Loop */
-.dplayer-setting-origin-panel .dplayer-setting-loop {
-    position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover {
     background: #fff !important;
 }
@@ -108,22 +103,28 @@
     color: #e91e63 !important;
 }
 
-/* Líneas rosas en ::before y ::after para Loop */
-.dplayer-setting-origin-panel .dplayer-setting-loop:hover::before,
-.dplayer-setting-origin-panel .dplayer-setting-loop:hover::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    background-color: #e91e63;
-    width: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+/* Cambiar estilos del label (switch) al hover del contenedor Loop */
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label {
+    border-color: #e91e63 !important;
+    box-shadow: #e91e63 0 0 5px 0 inset !important;
 }
 
-.dplayer-setting-origin-panel .dplayer-setting-loop:hover::before {
-    left: 5px;
+/* Cambiar color en ::before y ::after del label en hover Loop */
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::before,
+.dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::after {
+    background-color: #e91e63 !important;
 }
 
-.dplayer-setting-origin-panel .dplayer-setting-loop:hover::after {
-    right: 5px;
+/* Transiciones suaves */
+.dplayer-setting-speed-item, 
+.dplayer-setting-loop {
+    transition: background-color 0.3s ease !important;
+}
+
+.dplayer-setting-speed-item .dplayer-label,
+.dplayer-setting-loop .dplayer-label,
+.dplayer-setting-loop .dplayer-toggle label,
+.dplayer-setting-loop .dplayer-toggle label::before,
+.dplayer-setting-loop .dplayer-toggle label::after {
+    transition: color 0.3s ease !important, background-color 0.3s ease !important, border-color 0.3s ease !important, box-shadow 0.3s ease !important;
 }
