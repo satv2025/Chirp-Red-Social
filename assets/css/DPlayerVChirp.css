@@ -118,7 +118,7 @@
     fill: #e91e63 !important;
 }
 
-.dplayer-settign-speed .dplayer-label:hover {
+.dplayer-setting-speed .dplayer-label:hover {
     color: #e91e63 !important;
 }
 
@@ -160,6 +160,6 @@
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5) !important;
 }
 
-.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:after {
+.dplayer-setting-item.dplayer-setting-loop:hover .dplayer-toggle input:checked + label:after {
     box-shadow: -3px 0 0px rgba(0, 0, 0, 0.5) !important;
 }
