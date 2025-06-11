@@ -145,18 +145,9 @@
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::before,
 .dplayer-setting-origin-panel .dplayer-setting-loop:hover .dplayer-toggle label::after {
     background: #e91e63 !important;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.6) !important;
 }
 
-/* Transiciones suaves */
-.dplayer-setting-speed-item, 
-.dplayer-setting-loop {
-    transition: background-color 0.3s ease !important;
-}
-
-.dplayer-setting-speed-item .dplayer-label,
-.dplayer-setting-loop .dplayer-label,
-.dplayer-setting-loop .dplayer-toggle label,
-.dplayer-setting-loop .dplayer-toggle label::before,
-.dplayer-setting-loop .dplayer-toggle label::after {
-    transition: color 0.3s ease !important, background-color 0.3s ease !important, border-color 0.3s ease !important, box-shadow 0.3s ease !important;
+.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:before {
+    background: rgb(255 255 255 / 80%) !important;
 }
