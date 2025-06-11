@@ -67,3 +67,8 @@
 .dplayer-controller .dplayer-icons .dplayer-volume .dplayer-volume-bar-wrap {
     margin-bottom: -0.09em !important;
 }
+
+.dplayer-setting-box {
+    border-radius: 6px;
+    background: #e91e63;
+}
