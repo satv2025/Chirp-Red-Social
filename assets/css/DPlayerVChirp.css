@@ -85,11 +85,11 @@
     fill: white !important;
 }
 
-.dplayer .dplayer-setting-item .dplayer-setting-speed svg path:hover {
+.dplayer-setting-item .dplayer-setting-speed svg path:hover {
     fill: #e91e63 !important;
 }
 
-.dplayer-setting-speed .dplayer-label:hover {
+.dplayer-controller .dplayer-icons .dplayer-label :hover {
     color: #e91e63 !important;
 }
 
