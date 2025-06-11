@@ -69,6 +69,6 @@
 }
 
 .dplayer-setting-box {
-    border-radius: 6px;
+    border-radius: 6px !important;;
     background: #e91e63 !important;
 }
