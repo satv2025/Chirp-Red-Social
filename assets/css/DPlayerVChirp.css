@@ -81,15 +81,15 @@
     background: #e91e63 !important;
 }
 
-.dplayer svg path {
+.dplayer .dplayer-setting-item .dplayer-setting-speed svg path {
     fill: white !important;
 }
 
-.dplayer svg path:hover {
+.dplayer .dplayer-setting-item .dplayer-setting-speed svg path:hover {
     fill: #e91e63 !important;
 }
 
-span.dplayer-label:Hover {
+.dplayer-setting-speed .dplayer-label:hover {
     color: #e91e63 !important;
 }
 
