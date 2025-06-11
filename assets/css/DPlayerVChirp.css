@@ -68,7 +68,7 @@
     margin-bottom: -0.09em !important;
 }
 
-.dplayer-controller .dplayer-icons .dplayer-setting .dplayer-setting-item:hover, .dplayer-controller .dplayer-icons .dplayer-setting .dplayer-setting-speed-item:hover {
+.dplayer-setting-speed-item:hover {
     background: #fff;
     color: #e91e63 !important;
 }
@@ -76,4 +76,8 @@
 .dplayer-setting-box {
     border-radius: 6px !important;;
     background: #e91e63 !important;
+}
+
+.dplayer-setting-box svg {
+    fill: white !important;
 }
