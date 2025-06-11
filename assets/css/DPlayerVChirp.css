@@ -85,6 +85,18 @@
     fill: white !important;
 }
 
+.dplayer svg path:hover {
+    fill: #e91e63 !important;
+}
+
+span.dplayer-label:Hover {
+    color: #e91e63 !important;
+}
+
+.dplayer-controller .dplayer-icons .dplayer-setting .dplayer-setting-item:hover {
+    background-color: #fff !important;
+}
+
 /* Hover para opciones de Speed */
 .dplayer-setting-speed-panel .dplayer-setting-speed-item:hover {
     background: #fff !important;
